@@ -80,8 +80,26 @@
       });
       if (!ok) return;
 
-      form.style.display = 'none';
-      if (success) success.classList.add('show');
+      var btn = form.querySelector('button[type="submit"]');
+      var errNote = form.querySelector('.form__error');
+      if (errNote) errNote.hidden = true;
+      if (btn) btn.disabled = true;
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (!data.success) throw new Error(data.message || 'Submission failed');
+          form.style.display = 'none';
+          if (success) success.classList.add('show');
+        })
+        .catch(function () {
+          if (errNote) errNote.hidden = false;
+          if (btn) btn.disabled = false;
+        });
     });
 
     // clear error as the user types

@@ -76,6 +76,9 @@
     <!-- Form -->
     <div class="reveal" data-d="1">
       <form class="form" id="contact-form" novalidate>
+        <input type="hidden" name="access_key" value="0a86e2d9-67a7-4ab7-b66c-dfae883e7408" />
+        <input type="hidden" name="subject" value="New enquiry from Liberty Best Solutions" />
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="field" data-required>
           <label for="f-name">Name <span class="req">*</span></label>
           <input type="text" id="f-name" name="name" autocomplete="name" placeholder="Your full name" />
@@ -100,6 +103,7 @@
           <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h13M9.5 1.5 14.5 6l-5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <p class="form__note">No pressure, no obligation. We typically reply within one business day.</p>
+        <p class="form__error" hidden>Sorry — something went wrong sending your message. Please try again, or email us directly at <a href="mailto:hello@libertybestsolutions.com">hello@libertybestsolutions.com</a>.</p>
       </form>
 
       <div class="form__success">
